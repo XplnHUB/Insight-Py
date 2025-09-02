@@ -1,0 +1,2 @@
+[console_scripts]
+insight = insight.cli:main
