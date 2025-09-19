@@ -12,13 +12,12 @@ SUPPORTED_EXTS = (
 IGNORED_DIRS = {"venv", "node_modules", "__pycache__", ".git", "dist", "build"}
 
 def list_source_files(path):
-    """Yield all supported source files in a directory, skipping ignored dirs."""
     if os.path.isfile(path):
         yield path
         return
 
     for root, dirs, files in os.walk(path):
-        dirs[:] = [d for d in dirs if d not in IGNORED_DIRS]  # skip heavy dirs
+        dirs[:] = [d for d in dirs if d not in IGNORED_DIRS]
         for file in files:
             for ext in SUPPORTED_EXTS:
                 if file.lower().endswith(ext) or file.lower() == ext.strip("."):

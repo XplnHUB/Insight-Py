@@ -11,13 +11,13 @@ def main():
     args = parser.parse_args()
 
     if not os.path.exists(args.path):
-        print("❌ Path not found.")
+        print("Error: Path not found.")
         return
     
-    print("🔍 Analyzing codebase...")
+    print("Analyzing codebase...")
     analysis = analyze_codebase(args.path, limit=args.limit)
 
-    print("📝 Generating reports...")
+    print("Generating reports...")
     generate_report(analysis, args.output)
 
-    print(f"✅ Reports saved in {args.output}/")
+    print(f"Reports saved in {args.output}/")

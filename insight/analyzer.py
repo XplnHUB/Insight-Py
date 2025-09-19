@@ -4,7 +4,6 @@ from .detector import explain_code
 from .utils import list_source_files
 
 def extract_code_stats(file_path, content):
-    """Extract basic static analysis stats."""
     stats = {
         "functions": 0,
         "classes": 0,
@@ -12,10 +11,8 @@ def extract_code_stats(file_path, content):
         "comments": 0
     }
 
-    # Count comments
     stats["comments"] = sum(1 for line in content.splitlines() if line.strip().startswith("#"))
 
-    # For Python files → use AST parsing
     if file_path.endswith(".py"):
         try:
             tree = ast.parse(content)
@@ -29,7 +26,7 @@ def extract_code_stats(file_path, content):
                 elif isinstance(node, ast.ImportFrom):
                     stats["imports"].append(node.module)
         except Exception:
-            pass  # ignore parsing errors
+            pass
 
     return stats
 
@@ -39,11 +36,7 @@ def analyze_file(file_path):
 
     lines = content.splitlines()
     preview = lines[:30]
-
-    # Extract static stats
     stats = extract_code_stats(file_path, content)
-
-    # Ask Gemini for explanation + AI probability score
     explanation, ai_score = explain_code(content, file_path)
 
     return {
@@ -55,7 +48,7 @@ def analyze_file(file_path):
         "classes": stats["classes"],
         "imports": stats["imports"],
         "comments": stats["comments"],
-        "ai_score": ai_score  # 1–10 scale
+        "ai_score": ai_score
     }
 
 def analyze_codebase(path, limit=None):
@@ -66,7 +59,7 @@ def analyze_codebase(path, limit=None):
     for idx, file_path in enumerate(files, start=1):
         if limit and idx > limit:
             break
-        print(f"🔎 Processing {idx}/{total_files}: {file_path}")
+        print(f"Processing {idx}/{total_files}: {file_path}")
         results.append(analyze_file(file_path))
 
     return results
