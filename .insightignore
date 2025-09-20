@@ -1,2 +1,4 @@
 venv/
 .env
+test_install_env/
+report/

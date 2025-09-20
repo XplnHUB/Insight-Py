@@ -25,7 +25,7 @@ It provides both static analysis and AI-powered explanations (via Gemini API or 
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/insight.git
+git clone https://github.com/ExplainHub/Insight-Py.git
 cd insight
 ```
 
