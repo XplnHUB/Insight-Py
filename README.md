@@ -86,6 +86,10 @@ Reports will be saved in the specified folder, one Markdown file per source file
 * Support for local AI engines (Ollama, LM Studio).
 * Interactive web dashboard for reports.
 
+## 📖 Full Documentation
+
+For detailed setup and usage instructions, please see the [INSTRUCTION.md](INSTRUCTION.md) file.
+
 ## License
 
 This project is licensed under the MIT License.
