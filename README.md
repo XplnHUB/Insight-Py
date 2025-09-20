@@ -39,7 +39,6 @@ venv\Scripts\activate      # Windows
 pip install -r requirements.txt
 pip install -e .
 ```
-
 ## Setup
 
 If using Gemini API, set your API key:
