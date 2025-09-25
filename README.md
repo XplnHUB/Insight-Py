@@ -94,4 +94,3 @@ For detailed instructions, see [INSTRUCTION.md](INSTRUCTION.md).
 
 This project is licensed under the MIT License.
 
-If you want, I can also make a **more eye-catching “GitHub landing README” version** for Insight, optimized for new visitors, with badges, GIF demo placeholders, and a short tagline to make the repo look modern and professional. Do you want me to do that?
