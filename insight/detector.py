@@ -17,11 +17,18 @@ def show_error(message):
     )
 api_key = os.environ.get("GOOGLE_API_KEY") or os.environ.get("GEMINI_API_KEY")
 if not api_key:
-    error_message =''' Error: No API key found. 
-    Please set your key using one of the following:
-    export GOOGLE_API_KEY='your_key_here'
-    setx GOOGLE_API_KEY 'your_key_here'
-    '''
+    error_message = '''❌ Error: Missing Google API Key / Application Issue
+It looks like the application encountered an issue, possibly due to a missing Google API key.
+🔑 To fix a missing API key, set your key using one of the following methods:
+   • On macOS/Linux:
+       export GOOGLE_API_KEY='your_key_here'
+   • On Windows (PowerShell or CMD):
+       setx GOOGLE_API_KEY 'your_key_here'
+📖 Useful Links:
+   • Create/manage API keys: https://aistudio.google.com/app/api-keys
+   • Full setup & troubleshooting guide: https://github.com/XplnHUB/Insight-Py/blob/main/INSTRUCTION.md
+'''
+
     show_error(error_message)
     sys.exit(1)
 genai.configure(api_key=api_key)
