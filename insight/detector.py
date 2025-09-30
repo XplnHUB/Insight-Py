@@ -1,12 +1,28 @@
 import google.generativeai as genai
 import os
 import sys
+from rich.console import Console
+from rich.panel import Panel
+
+console = Console()
+
+def show_error(message):
+    console.print(
+        Panel.fit(
+            f"[bold red]❌ ERROR[/bold red]\n\n{message}",
+            border_style="red",
+            title="System Message",
+            title_align="left"
+        )
+    )
 api_key = os.environ.get("GOOGLE_API_KEY") or os.environ.get("GEMINI_API_KEY")
 if not api_key:
-    print("Error: No API key found.")
-    print("Please set your key using one of the following:")
-    print("  export GOOGLE_API_KEY='your_key_here'")
-    print("  setx GOOGLE_API_KEY 'your_key_here'")
+    error_message =''' Error: No API key found. 
+    Please set your key using one of the following:
+    export GOOGLE_API_KEY='your_key_here'
+    setx GOOGLE_API_KEY 'your_key_here'
+    '''
+    show_error(error_message)
     sys.exit(1)
 genai.configure(api_key=api_key)
 def explain_code(content: str, filename: str):
