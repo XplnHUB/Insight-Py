@@ -15,7 +15,7 @@ def show_error(message):
             title_align="left"
         )
     )
-api_key = os.environ.get("GOOGLE_API_KEY") or os.environ.get("GEMINI_API_KEY")
+api_key = os.environ.get("GOOGLE_API_KEY")
 if not api_key:
     error_message = '''❌ Error: Missing Google API Key / Application Issue
 It looks like the application encountered an issue, possibly due to a missing Google API key.
