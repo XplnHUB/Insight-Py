@@ -11,7 +11,9 @@ def main():
     args = parser.parse_args()
 
     if not os.path.exists(args.path):
-        print("Error: Path not found.")
+
+        print(f"❌ Error: Path '{args.path}' not found.")
+        print(f"   • Current directory: {os.getcwd()}")
         return
     
     print("Analyzing codebase...")
