@@ -1,5 +1,6 @@
 import ast
 import os
+import logging
 from .detector import explain_code
 from .utils import list_source_files
 
@@ -25,8 +26,8 @@ def extract_code_stats(file_path, content):
                     stats["imports"].extend(alias.name for alias in node.names)
                 elif isinstance(node, ast.ImportFrom):
                     stats["imports"].append(node.module)
-        except Exception:
-            pass
+        except Exception as e:
+            logging.warning(f"Could not parse {file_path}: {e}")
 
     return stats
 
