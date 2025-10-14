@@ -3,10 +3,11 @@ import os
 SUPPORTED_EXTS = (
     ".py", ".js", ".ts", ".tsx", ".jsx", ".java", ".c", ".cpp", ".cs",
     ".go", ".rb", ".php", ".rs", ".swift", ".kt", ".scala", ".dart",
-    ".m", ".mm", ".sh", ".bat", ".pl", ".lua",
-    ".html", ".htm", ".css", ".scss", ".less", ".ejs", ".erb", ".mustache",
-    ".json", ".yaml", ".yml", ".toml", ".ini", ".cfg", ".xml",
-    ".md", ".rst", ".sql", ".gradle", ".pom", ".makefile", ".cmake", ".dockerfile"
+    ".m", ".mm", ".sh", ".bat", ".pl", ".lua", ".r",
+    ".html", ".htm", ".css", ".scss", ".less", ".ejs", ".erb", ".mustache", ".vue", ".svelte",
+    ".json", ".yaml", ".yml", ".toml", ".ini", ".cfg", ".xml", ".proto", ".graphql",
+    ".md", ".rst", ".sql", ".gradle", ".pom", ".makefile", ".cmake", ".dockerfile", ".tf",
+    ".ipynb"
 )
 
 # Default directories to ignore
