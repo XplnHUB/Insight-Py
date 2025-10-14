@@ -68,7 +68,7 @@ Change the output directory:
 insight . -o my_reports
 ```
 
-Reports are saved in the specified folder, with one Markdown file per source file plus a `summary.md`.
+Reports are saved in the specified folder, with one Markdown file per source file plus a `summary.md`..
 
 ## Supported File Types
 
