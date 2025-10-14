@@ -12,7 +12,41 @@ def extract_code_stats(file_path, content):
         "comments": 0
     }
 
-    stats["comments"] = sum(1 for line in content.splitlines() if line.strip().startswith("#"))
+    # Count comments based on file type
+    lines = content.splitlines()
+    ext = os.path.splitext(file_path)[1].lower()
+
+    if ext == ".py":
+        # Python: # comments and triple-quoted docstrings
+        comment_count = 0
+        for line in lines:
+            stripped = line.strip()
+            if stripped.startswith("#"):
+                comment_count += 1
+            elif '"""' in line or "'''" in line:
+                # Count docstring lines (simplified)
+                comment_count += 1
+        stats["comments"] = comment_count
+    elif ext in [".js", ".ts", ".tsx", ".jsx", ".java", ".cpp", ".c", ".cs", ".php"]:
+        # C-style languages: // and /* */ comments
+        comment_count = 0
+        in_block_comment = False
+        for line in lines:
+            stripped = line.strip()
+            if stripped.startswith("//"):
+                comment_count += 1
+            elif "/*" in line:
+                in_block_comment = True
+                comment_count += 1
+            elif "*/" in line:
+                in_block_comment = False
+                comment_count += 1
+            elif in_block_comment:
+                comment_count += 1
+        stats["comments"] = comment_count
+    else:
+        # Default: count lines that look like comments
+        stats["comments"] = sum(1 for line in lines if line.strip().startswith(("#", "//", "/*", "*")))
 
     if file_path.endswith(".py"):
         try:
