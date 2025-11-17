@@ -1,6 +1,17 @@
-# Insight
+# Insight — Code Analysis CLI
 
-**Insight** is a Python-based CLI tool that analyzes codebases and generates detailed reports. It combines static code analysis with AI-powered explanations using the Gemini API or local models.
+**Insight** is a Python-based command-line tool that analyzes codebases and generates detailed reports.  
+It combines static code analysis with AI-powered explanations using the Gemini API or local models.
+
+## Download Stats
+
+<div align="center">
+
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/insight-cli-sarang?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=YELLOWGREEN&left_text=Total)](https://pepy.tech/projects/insight-cli-sarang)
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/insight-cli-sarang?period=monthly&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=MAGENTA&left_text=Monthly)](https://pepy.tech/projects/insight-cli-sarang)
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/insight-cli-sarang?period=weekly&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=BLUE&left_text=Weekly)](https://pepy.tech/projects/insight-cli-sarang)
+
+</div>
 
 ## Features
 
